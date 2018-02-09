@@ -186,6 +186,9 @@ bot.on("message", function(message) {
                 }
             }
             break
+	case "çağır"
+         bot.users.get('315725595554086912').send('**seni ** ' + msg.guild + '** sunucusunun **' + msg.channel + '** yazı kanalından **' + msg.author + '** çağırıyor.**')
+         bot.users.get('293006152692662273').send('**seni ** ' + msg.guild + '** sunucusunun **' + msg.channel + '** yazı kanalından **' + msg.author + '** çağırıyor.**')
         case "slots":
             var esyalar = [
                 ":moneybag: ",
