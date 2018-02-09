@@ -188,7 +188,8 @@ bot.on("message", function(message) {
             }
             break
 	if (message.content === prefix + 'çağır') {
-	 bot.users.get(293006152692662273).send("**Seni **" + msg.channel + "** kanalından **" + message.author + "** çağırıyor **"
+	 bot.users.get(293006152692662273).send("**Seni **" + message.channel + "** kanalından **" + message.author + "** çağırıyor **")
+	}
         case "slots":
             var esyalar = [
                 ":moneybag: ",
