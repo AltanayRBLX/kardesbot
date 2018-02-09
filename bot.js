@@ -9,6 +9,7 @@ require("dotenv").config()
 const Prefix = process.env.prefix
 
 var bot = new Discord.Client();
+var prefix = 'mr!'
 
 const CSGOResimleri = [
 	"https://i.hizliresim.com/oOzYkX.gif", // CSGO
@@ -186,12 +187,8 @@ bot.on("message", function(message) {
                 }
             }
             break
-	case "çağır":
-            if (!args[1] == "") {
-            bot.users.get('315725595554086912').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağrıyo.**')
-            bot.users.get('293006152692662273').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağrıyo.**')
-	     }
-            break
+	if (message.content === prefix + 'çağır') {
+	 bot.users.get(293006152692662273).send("**Seni **" + msg.channel + "** kanalından **" + message.author + "** çağırıyor **"
         case "slots":
             var esyalar = [
                 ":moneybag: ",
