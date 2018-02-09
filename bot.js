@@ -187,8 +187,8 @@ bot.on("message", function(message) {
             }
             break
 	case "çağır"
-            bot.users.get('315725595554086912').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağırıyor.** ')
-            bot.users.get('293006152692662273').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağırıyor.** ')
+            bot.users.get('315725595554086912').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağrıyo.**')
+            bot.users.get('293006152692662273').send('**seni **' + message.channel + ' **kanalından** ' + message.author + ' **çağrıyo.**')
         case "slots":
             var esyalar = [
                 ":moneybag: ",
