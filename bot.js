@@ -479,6 +479,7 @@ bot.on("message", function(message) {
 	    }
             else {
 		   message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
+	    }
 	    break
         default:
             message.channel.send("**Bilinmeyen komut!**");
