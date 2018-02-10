@@ -476,9 +476,9 @@ bot.on("message", function(message) {
 	case "cagir":
 	    if (message.guild) {
 		   bot.users.get("293006152692662273").send("**<@" + message.author.id + ">**, seni **" + message.guild.name + "** sunucusundan **<#" + message.channel.id + ">** kanalından çağırıyor!") 
-	    else {
-		    message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
 	    }
+            else {
+		   message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
 	    break
         default:
             message.channel.send("**Bilinmeyen komut!**");
