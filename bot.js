@@ -9,8 +9,9 @@ require("dotenv").config()
 const Prefix = process.env.prefix
 
 const SerbestKullanicilar = [
-	"315725595554086912"
-	"293006152692662273"
+	"315725595554086912",
+	"293006152692662273",
+	"273453450019471361"
 ]
 
 var bot = new Discord.Client();
