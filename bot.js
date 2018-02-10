@@ -8,9 +8,9 @@ require("dotenv").config()
 
 const Prefix = process.env.prefix
 
-const SerbestKullanicilar = {
+const SerbestKullanicilar = [
 	"315725595554086912"
-}
+]
 
 var bot = new Discord.Client();
 
@@ -473,6 +473,13 @@ bot.on("message", function(message) {
                 .setThumbnail(bot.user.avatarURL)
             message.channel.send(embed);
             break
+	case "cagir":
+	    if (message.guild) {
+		   bot.users.get("293006152692662273").send("**<@" + message.author.id + ">**, seni **" + message.guild.name + "** sunucusundan **<#" + message.channel.id + ">** kanalından çağırıyor!") 
+	    else {
+		    message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
+	    }
+	    break
         default:
             message.channel.send("**Bilinmeyen komut!**");
     }
