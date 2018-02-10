@@ -6,10 +6,9 @@ const url = require("url")
 const delay = require("delay")
 require("dotenv").config()
 
-const Prefix = process.env.prefix
+const Prefix = "mr!"
 
 var bot = new Discord.Client();
-var prefix = 'mr!'
 
 const CSGOResimleri = [
 	"https://i.hizliresim.com/oOzYkX.gif", // CSGO
@@ -31,19 +30,10 @@ const KediResimleri = [
 bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#" + bot.user.discriminator + " ismiyle giriş yapıldı!");
-    bot.user.setGame("discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
-});
-
-bot.on("error", function(error) {
-	console.log(error)
-});
-
-bot.on("warn", function(warn) {
-	console.log(warn)
+    bot.user.setGame(Prefix + "yardim | 1/1 | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildCreate", function(guild) {
-    if (DevreDisiGuildler.includes(guild.id)) return;
     if (guild.channels.first().type == "text") {
         guild.channels.first().send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW");
     }
@@ -60,7 +50,7 @@ bot.on("guildCreate", function(guild) {
     //        if (err) console.log(err);
     //    });
     //});
-    bot.user.setGame("discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
+    bot.user.setGame(Prefix + "yardim | 1/1 | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildDelete", function(guild) {
@@ -81,21 +71,18 @@ bot.on("guildDelete", function(guild) {
 });
 
 bot.on("guildMemberAdd", function(member) {
-    if (DevreDisiGuildler.includes(member.guild.id)) return;
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :inbox_tray: | **" + member.user.username + "** Sunucuya Giriş Yaptı!");
     }
 });
 
 bot.on("guildMemberLeave", function(member) {
-    if (DevreDisiGuildler.includes(member.guild.id)) return;
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :outbox_tray: | **" + member.user.username + "** Sunucudan Ayrıldı!");
     }
 });
 
 bot.on("roleUpdate", function(oldrole, newrole) {
-    if (DevreDisiGuildler.includes(newrole.guild.id)) return;
     if (newrole.guild.channels.first().type == "text") {
         if (newrole.name != oldrole.name || newrole.permissions != oldrole.permissions) {
              var embed = new Discord.RichEmbed()
@@ -187,9 +174,6 @@ bot.on("message", function(message) {
                 }
             }
             break
-	if (message.content === prefix + 'çağır') {
-	 bot.users.get(293006152692662273).send("**Seni **" + message.channel + "** kanalından **" + message.author + "** çağırıyor **")
-	}
         case "slots":
             var esyalar = [
                 ":moneybag: ",
@@ -231,12 +215,28 @@ bot.on("message", function(message) {
             });
             break
         case "avatar":
-            var embed = new Discord.RichEmbed()
+			if (!args[1] == "") {
+				var member = message.mentions.members.first();
+				if (member) {
+					var embed = new Discord.RichEmbed()
+					.setAuthor(message.author.username, message.author.avatarURL)
+                
+					.setImage(message.author.avatarURL)
+                
+					message.channel.send(embed)
+				}
+				else {
+					message.channel.send("**Kullanıcı bulunamadı!**")
+				}
+			}
+			else {
+				var embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
                 
                 .setImage(message.author.avatarURL)
                 
-            message.channel.send(embed)
+				message.channel.send(embed)
+			}
             break
         case "hataverdirme":
             throw new Error("İsteğe bağlı hata verdirildi!")
@@ -343,6 +343,25 @@ bot.on("message", function(message) {
                 .setImage(message.guild.iconURL)
                 
             message.channel.send(embed);
+            break
+		case "temizle":
+            if (!args[1] == "") {
+                if (message.member.roles.some(r=>["Manage Messages"].includes(r.name))) {
+                    var temizle = parseInt(args[1])
+                    if (temizle > 100)
+                    return message.channel.send("**Mesaj silme sınırı 100'dür!**");
+                    if (temizle < 2)
+                    return message.channel.send("**Minimum 2 mesaj silinebilir!**");
+                    message.channel.bulkDelete(temizle)
+                    message.channel.send(":white_check_mark: **" + temizle + "**");
+                }
+                else {
+                    message.delete()
+                }
+            }
+            else {
+                message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+            }
             break
 		case "ping":
 			var ping = message.channel.send("Ping!").then((pinglatency) => {
@@ -522,6 +541,9 @@ bot.on("message", function(message) {
     if (message.content.toLowerCase().indexOf("küfür") > -1 ||
     message.content.toLowerCase().indexOf("siktir") > -1 ||
     message.content.toLowerCase().indexOf("sikerim") > -1 ||
+	message.content.toLowerCase().indexOf("sıkerım") > -1 ||
+	message.content.toLowerCase().indexOf("sikerım") > -1 ||
+	message.content.toLowerCase().indexOf("sıkerim") > -1 ||
     message.content.toLowerCase().indexOf("amına") > -1 ||
     message.content.toLowerCase().indexOf("amina") > -1 ||
     message.content.toLowerCase().indexOf("amcık") > -1 ||
@@ -529,6 +551,8 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("ananı") > -1 ||
     message.content.toLowerCase().indexOf("ecdadını") > -1 ||
     message.content.toLowerCase().indexOf("sikiyim") > -1 ||
+	message.content.toLowerCase().indexOf("sıkıyim") > -1 ||
+	message.content.toLowerCase().indexOf("sikıyım") > -1 ||
     message.content.toLowerCase().indexOf("orospu") > -1 ||
     message.content.toLowerCase().indexOf("orospu çocuğu") > -1 ||
     message.content.toLowerCase().indexOf("yarrak") > -1 ||
