@@ -6,7 +6,7 @@ const url = require("url")
 const delay = require("delay")
 require("dotenv").config()
 
-const Prefix = process.env.prefix
+const Prefix = "mr!"
 
 const SerbestKullanicilar = [
 	"315725595554086912"
