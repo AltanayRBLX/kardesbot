@@ -435,8 +435,8 @@ bot.on("message", function(message) {
                 .setAuthor(bot.user.username, bot.user.avatarURL)
                 .setTitle("<:yardim:401040634745454597> Yardım Komutları")
                 .addField("**>**  Komutlar", "temizle" + os.EOL +
-				"ban" + os.EOL + 
-				"kick" + os.EOL + 
+				"yasakla" + os.EOL + 
+				"at" + os.EOL + 
 				"**Resim-Gif**" + os.EOL + 
 				"csgo" + os.EOL + 
 				"kedi" + os.EOL + 
