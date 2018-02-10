@@ -6,7 +6,11 @@ const url = require("url")
 const delay = require("delay")
 require("dotenv").config()
 
-const Prefix = "mr!"
+const Prefix = process.env.prefix
+
+const SerbestKullanicilar = {
+	"315725595554086912"
+}
 
 var bot = new Discord.Client();
 
@@ -493,12 +497,12 @@ bot.on("message", function(message) {
         // });
     //}
         
-    if (message.content.toLowerCase() == "merhaba") {
+    if (message.content.toLowerCase() == "merhaba") || (message.content.toLowerCase() == "meraba") {
         message.react("👋")
-        message.channel.send("**Merhaba**, <@" + message.author.id + ">!");
+        message.channel.send("Merhaba Güzel Kardeşim, Hoşgeldin !!");
     }
 
-    if (message.content.toLowerCase() == "sa") {
+    if (message.content.toLowerCase() == "sa") || (message.content.toLowerCase().indexOf("selamın aleyküm") >= -1) || (message.content.toLowerCase().indexOf("selamun aleyküm") >= -1) || (message.content.toLowerCase().indexOf("selamın aleykum") >= -1) || (message.content.toLowerCase().indexOf("selamun aleykum") >= -1) || (message.content.toLowerCase().indexOf("selam") >= -1) || (message.content.toLowerCase().indexOf("slm") >= -1) {
         message.react("👋")
         message.channel.send("**Aleyküm Selam**, <@" + message.author.id + ">!");
     }
@@ -514,6 +518,7 @@ bot.on("message", function(message) {
     }
 
     if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
+	if (SerbestKullanicilar.includes(message.author.id)) return;
         if (!message.author.bot) {
             message.react("😡")
             message.delete()
@@ -522,6 +527,7 @@ bot.on("message", function(message) {
     }
 
     if (message.content.toLowerCase().indexOf("https") > -1 || message.content.toLowerCase().indexOf("http") > -1) {
+	if (SerbestKullanicilar.includes(message.author.id)) return;
         if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
             if (message.author.bot == false) {
                 message.react("😡")
