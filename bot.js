@@ -499,12 +499,12 @@ bot.on("message", function(message) {
         
     if (message.content.toLowerCase() == "merhaba") || (message.content.toLowerCase() == "meraba") {
         message.react("👋")
-        message.channel.send("Merhaba Güzel Kardeşim, Hoşgeldin !!");
+        message.channel.send("Merhaba Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart:");
     }
 
     if (message.content.toLowerCase() == "sa") || (message.content.toLowerCase().indexOf("selamın aleyküm") >= -1) || (message.content.toLowerCase().indexOf("selamun aleyküm") >= -1) || (message.content.toLowerCase().indexOf("selamın aleykum") >= -1) || (message.content.toLowerCase().indexOf("selamun aleykum") >= -1) || (message.content.toLowerCase().indexOf("selam") >= -1) || (message.content.toLowerCase().indexOf("slm") >= -1) {
         message.react("👋")
-        message.channel.send("**Aleyküm Selam**, <@" + message.author.id + ">!");
+        message.channel.send("Aleyküm Selam Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart:");
     }
 
     if (message.content.toLowerCase() == "iyi geceler") {
