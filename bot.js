@@ -220,12 +220,12 @@ bot.on("message", function(message) {
             break
         case "avatar":
 			if (!args[1] == "") {
-				var member = message.mentions.members.first();
-				if (member) {
+				var avatar = message.mentions.members.first();
+				if (avatar) {
 					var embed = new Discord.RichEmbed()
-					.setAuthor(message.author.username, message.author.avatarURL)
+					.setAuthor(avatar.user.username, avatar.user.avatarURL)
                 
-					.setImage(message.author.avatarURL)
+					.setImage(avatar.user.avatarURL)
                 
 					message.channel.send(embed)
 				}
