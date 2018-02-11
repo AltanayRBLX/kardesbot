@@ -11,7 +11,8 @@ const Prefix = process.env.prefix
 const SerbestKullanicilar = [
 	"315725595554086912",
 	"293006152692662273",
-	"273453450019471361"
+	"273453450019471361",
+	"309591598935572480"
 ]
 
 var bot = new Discord.Client();
