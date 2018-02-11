@@ -520,17 +520,12 @@ bot.on("message", function(message) {
 	message.content.toLowerCase().indexOf("selam") > -1 ||
 	message.content.toLowerCase().indexOf("slm") > -1) {
         message.react("👋")
-        message.channel.send("Aleyküm Selam Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart:");
+        message.channel.send("**Aleyküm Selam Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart: **");
     }
 
     if (message.content.toLowerCase() == "iyi geceler") {
         message.react("🌝")
         message.channel.send("**İyi Geceler**, <@" + message.author.id + ">!");
-    }
-
-    if (message.content.toLowerCase().startsWith("teyzen")) {
-        message.react("😂")
-        message.channel.send("**Yok Baban** :smile:, <@" + message.author.id + ">!");
     }
 
     if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
