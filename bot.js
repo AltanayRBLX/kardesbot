@@ -512,13 +512,13 @@ bot.on("message", function(message) {
         message.channel.send("Merhaba Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart:");
     }
 
-    if (message.content.toLowerCase() === ("sa") > -1 ||
-    message.content.toLowerCase() === ("selamın aleyküm") > -1 ||
-    message.content.toLowerCase() === ("selamun aleyküm") > -1 ||
-	message.content.toLowerCase() === ("selamun aleykum") > -1 ||
-	message.content.toLowerCase() === ("selamın aleykum") > -1 ||
-	message.content.toLowerCase() === ("selam") > -1 ||
-	message.content.toLowerCase() === ("slm") > -1) {
+    if (message.content.toLowerCase() == ("sa") > -1 ||
+    message.content.toLowerCase() == ("selamın aleyküm") > -1 ||
+    message.content.toLowerCase() == ("selamun aleyküm") > -1 ||
+	message.content.toLowerCase() == ("selamun aleykum") > -1 ||
+	message.content.toLowerCase() == ("selamın aleykum") > -1 ||
+	message.content.toLowerCase() == ("selam") > -1 ||
+	message.content.toLowerCase() == ("slm") > -1) {
         message.react("👋")
         message.channel.send("**Aleyküm Selam Güzel Kardeşim, Hoşgeldin !! :sparkling_heart::sparkling_heart: **");
     }
