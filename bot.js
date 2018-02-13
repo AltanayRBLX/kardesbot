@@ -37,7 +37,7 @@ const KediResimleri = [
 bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#" + bot.user.discriminator + " ismiyle giriş yapıldı!");
-    bot.user.setGame("discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
+    bot.user.setGame("1 Sunucu | discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
 });
 
 bot.on("guildCreate", function(guild) {
@@ -57,7 +57,7 @@ bot.on("guildCreate", function(guild) {
     //        if (err) console.log(err);
     //    });
     //});
-    bot.user.setGame("discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
+    bot.user.setGame("1 Sunucu | discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
 });
 
 bot.on("guildDelete", function(guild) {
@@ -74,7 +74,7 @@ bot.on("guildDelete", function(guild) {
     //        if (err) console.log(err);
     //    });
     //});
-    bot.user.setGame("discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
+    bot.user.setGame("1 Sunucu | discord.gg/Ea6aUCG", 'https://www.twitch.tv/melihkardes', 1);
 });
 
 bot.on("guildMemberAdd", function(member) {
