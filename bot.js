@@ -384,7 +384,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Altyapı", "<@386913390779432960>, (<@273453450019471361>)")
                 .addField("**>**  Sürüm", "V 1")
                 .addField("**>**  Resmi Sunucu", "https://discord.gg/XKaRZhT")
-                .addField("**>**  Davet Linki", "https://bit.ly/Reyiz")
+                .addField("**>**  Davet Linki", "https://goo.gl/sDz4gZ")
                 .setColor(3447003)
                 .setThumbnail(bot.user.avatarURL)
                 .setFooter("" + process.env.BOT_NAME + " | April Inc. " + new Date(), bot.user.avatarURL)
@@ -483,6 +483,9 @@ bot.on("message", function(message) {
             else {
 		   message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
 	    }
+	    break
+	case "davet":
+	    message.channel.send("**> Botumuzu eklediğiniz için teşekkür ederiz !: **" + os.EOL + "https://goo.gl/sDz4gZ")
 	    break
         default:
             message.channel.send("**Bilinmeyen komut!**");
